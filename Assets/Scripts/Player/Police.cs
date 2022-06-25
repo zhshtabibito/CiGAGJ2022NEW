@@ -106,8 +106,6 @@ public class Police : CharBase
             transform.localScale = new Vector3(1, 1, 1) * scale;
         }
 
-        // Start coroutine
-        // anime state
         coroutine = StartCoroutine(MoveTo(obj.position));
     }
 
@@ -134,14 +132,13 @@ public class Police : CharBase
         }
     }
 
-    // ÉÈĞÎ¼ì²â
+    // ï¿½ï¿½ï¿½Î¼ï¿½ï¿½
     private bool RayFan()
     {
-        // Ò»ÌõÏòÇ°µÄÉäÏß
+        
         if (RayLine(dir))
             return true;
 
-        // ¶àÒ»¸ö¾«È·¶È¾Í¶àÁ½Ìõ¶Ô³ÆµÄÉäÏß,Ã¿ÌõÉäÏß¼Ğ½ÇÊÇ×Ü½Ç¶È³ıÓë¾«¶È
         float subAngle = (90f / 2) / SightAccu;
         for (int i = 0; i < SightAccu; i++)
         {
@@ -154,7 +151,7 @@ public class Police : CharBase
         return false;
     }
 
-    // Éä³öÉäÏß¼ì²âÊÇ·ñÓĞPlayer
+
     private bool RayLine(Vector2 RayDir)
     {
         Debug.DrawRay(transform.position, RayDir.normalized * SightLen, Color.yellow);
@@ -184,14 +181,7 @@ public class Police : CharBase
         }
         else if (collision.CompareTag("Shadow"))
         {
-            // 
-
+            
         }
     }
-
-
-
-
-
-
 }

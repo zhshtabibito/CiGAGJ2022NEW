@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RayTest : MonoBehaviour
+public class RayTest2 : MonoBehaviour
 {
     private GameObject img;
     private bool isUse = false;
@@ -27,23 +27,12 @@ public class RayTest : MonoBehaviour
         var x = oldVec.x;
         var y = oldVec.y;
 
-        var newX = y+transform.position.x;
-        var newY = x+transform.position.y;
+        var newX = -y+transform.position.x;
+        var newY = -x+transform.position.y;
 
         Vector2 newVec = new Vector2((float)newX,(float)newY);
 
         img.transform.position = newVec;
-
-        /*if(gameObject.tag == "Mirror1"||gameObject.tag == "Mirror2");
-        {
-            img.transform.position = newVec;
-        }
-
-        if(gameObject.tag == "Mirror3"||gameObject.tag == "Mirror4");
-        {
-            img.transform.position = -newVec;
-        }*/
-        
 
         if(hit1.collider!=null||hit2.collider!=null)
         {

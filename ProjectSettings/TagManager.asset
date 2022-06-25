@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Mirror1
+  - Mirror2
+  - Mirror3
+  - Mirror4
   layers:
   - Default
   - TransparentFX
