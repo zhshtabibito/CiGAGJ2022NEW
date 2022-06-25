@@ -67,6 +67,7 @@ public class Police : CharBase
         yield return new WaitForSeconds(0.5f);
         AlertMark.SetActive(false);
         state = CHASE;
+        Debug.Log("start chase");
     }
 
 
