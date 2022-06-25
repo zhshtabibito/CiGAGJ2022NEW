@@ -34,7 +34,7 @@ public class Police : CharBase
 
     // Look
     public float SightLen = 1;
-    private float SightAccu = 12;
+    private float SightAccu = 24;
 
     // Chase
     // public List<GameObject> ChaseList;
@@ -99,9 +99,6 @@ public class Police : CharBase
             }
         }
 
-
-
-
         DetectorPrefab.localScale = dir;
     }
 
@@ -110,20 +107,24 @@ public class Police : CharBase
         Vector3 d = target.transform.position - transform.position;
         if (d.x < 0 && !Detectors[0].GetComponent<Detector>().CheckWall())
         {
-            coroutine = StartCoroutine(MoveTo(transform.position + new Vector3(-1, 0, 0)));
+            coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(-0.5f, 0, 0))));
         }
         else if (d.y > 0 && !Detectors[1].GetComponent<Detector>().CheckWall())
         {
-            coroutine = StartCoroutine(MoveTo(transform.position + new Vector3(0, 1, 0)));
+            coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(0, 0.5f, 0))));
         }
         else if (d.x > 0 && !Detectors[2].GetComponent<Detector>().CheckWall())
         {
-            coroutine = StartCoroutine(MoveTo(transform.position +new Vector3(1,0,0)));
+            coroutine = StartCoroutine(MoveTo(AllignPos(transform.position +new Vector3(0.5f, 0,0))));
         }
         else if (d.y < 0 && !Detectors[3].GetComponent<Detector>().CheckWall())
         {
-            coroutine = StartCoroutine(MoveTo(transform.position + new Vector3(0, -1, 0)));
+            coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(0, -0.5f, 0))));
         }
+
+
+
+
     }
 
     private IEnumerator WaitAndChase()
@@ -143,35 +144,31 @@ public class Police : CharBase
 
     private void MoveToObject(Transform obj)
     {
-        Vector2 d = obj.position - transform.position;
-
-        if (d.x < -0.1f) // left
-        {
-            dir = new Vector3(-1, 0, 0);
-            transform.localScale = new Vector3(-1, 1, 1) * scale;
-        }
-        else if (d.x > 0.1f) // right
-        {
-            dir = new Vector3(1, 0, 0);
-            transform.localScale = new Vector3(1, 1, 1) * scale;
-        }
-        else if(d.y < -0.1f) // down
-        {
-            dir = new Vector3(0, -1, 0);
-            transform.localScale = new Vector3(1, -1, 1) * scale;
-        }
-        else if (d.y > 0.1f) // up
-        {
-            dir = new Vector3(0, 1, 0);
-            transform.localScale = new Vector3(1, 1, 1) * scale;
-        }
-
         coroutine = StartCoroutine(MoveTo(obj.position));
     }
 
     private IEnumerator MoveTo(Vector3 tar)
     {
+        Vector2 d = tar - transform.position;
         isMoving = true;
+
+        if (d.x < -0.1f) // left
+        {
+            dir = new Vector3(-1, 1, 1);
+        }
+        else if (d.x > 0.1f) // right
+        {
+            dir = new Vector3(1, 1, 1);
+        }
+        else if (d.y < -0.1f) // down
+        {
+            dir = new Vector3(1, -1, 1);
+        }
+        else if (d.y > 0.1f) // up
+        {
+            dir = new Vector3(1, 1, 1);
+        }
+        transform.localScale = dir * scale;
 
         if (state == CHASE)
         {
@@ -283,5 +280,12 @@ public class Police : CharBase
         {
         
         }
+    }
+
+    private Vector3 AllignPos(Vector3 v)
+    {
+        float x = Mathf.Round(v.x * 2) / 2;
+        float y = Mathf.Round(v.y * 2) / 2;
+        return new Vector3(x, y, 0);
     }
 }
