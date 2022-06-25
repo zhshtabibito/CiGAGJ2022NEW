@@ -46,17 +46,22 @@ public class Player : CharBase
     }
 
     // if can place wall return true
-    public bool CheckWall()
+    public int CheckWall()
     {
         bool d1 = Detectors[0].GetComponent<Detector>().CheckWall();
         bool d2 = Detectors[1].GetComponent<Detector>().CheckWall();
         bool d3 = Detectors[2].GetComponent<Detector>().CheckWall();
         bool d4 = Detectors[3].GetComponent<Detector>().CheckWall();
 
-        bool two = (d1 && d2) || (d2 && d3) || (d3 && d4) || (d4 && d1);
-        bool three = (d1 && d2 && d3) || (d2 && d3 && d4) || (d3 && d4 && d1) || (d4 && d1 && d2);
-
-        return two && !three;
+        if (d1 && d2 && !d3 && !d4) // 左上
+            return 4;
+        if (d2 && d3 && !d1 && !d4) // 右上
+            return 1;
+        if (d3 && d4 && !d1 && !d2) // 右下
+            return 3;
+        if (d1 && d4 && !d2 && !d3) // 左下
+            return 2;
+        return 0;
     }
 
 

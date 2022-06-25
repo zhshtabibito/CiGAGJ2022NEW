@@ -47,9 +47,11 @@ public class LevelInfo : MonoBehaviour
                     }
                 }
             }
-            if (MirrorLeft > 0 && player.GetComponent<Player>().CheckWall())
+            if (MirrorLeft > 0)
             {
-                SetMirror();
+                int mid = player.GetComponent<Player>().CheckWall();
+                if(mid>0)
+                    SetMirror(mid);
             }
         }
     }
@@ -59,11 +61,12 @@ public class LevelInfo : MonoBehaviour
         numObj.GetComponent<TMP_Text>().text = $"X{MirrorLeft}";
     }
 
-    private void SetMirror()
+    private void SetMirror(int mid)
     {
-        GameObject m = Object.Instantiate((GameObject)Resources.Load("Prefabs/Mirror/Mirror"));
+        GameObject m = Object.Instantiate((GameObject)Resources.Load($"Prefabs/Mirror/Mirror{mid}"));
         m.transform.position = AllignPos();
         MirrorList.Add(m);
+        MirrorLeft--;
     }
 
     private Vector3 AllignPos()
