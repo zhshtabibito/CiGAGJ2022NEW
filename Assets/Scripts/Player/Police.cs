@@ -38,7 +38,6 @@ public class Police : CharBase
     // Chase
     public List<GameObject> ChaseList;
     private int ChaseNext = 0;
-    private Transform player;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +50,6 @@ public class Police : CharBase
         PatrolLenth = PatrolList.Count;
 
         MoveToPatrolPoint(PatrolNext);
-        player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
@@ -64,7 +62,7 @@ public class Police : CharBase
                 StopCoroutine(coroutine);
                 state = ALERT;
                 ChaseList.Add(new GameObject());
-                ChaseList[0].transform.position = GetPlayerPos();
+                ChaseList[0].transform.position = Player.Instance.GetPos();
                 StartCoroutine("WaitAndChase");
             }
         }
@@ -75,10 +73,6 @@ public class Police : CharBase
         }
     }
 
-    private Vector3 GetPlayerPos()
-    {
-        return new Vector3(player.position.x, player.position.y, player.position.z);
-    }
 
     private IEnumerator WaitAndChase()
     {
