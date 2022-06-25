@@ -12,11 +12,12 @@ public class PanelManager : MonoBehaviour
     private Stack<BasePanel> panelStack;
 
     public Transform BlackMask;
-    private RawImage BlackMaskCpn;
+    private Image BlackMaskCpn;
 
     private void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(this);
 
         Screen.SetResolution(444, 960, false);
 
@@ -24,7 +25,7 @@ public class PanelManager : MonoBehaviour
         dictPanel = new Dictionary<string, BasePanel>();
         panelStack = new Stack<BasePanel>();
 
-        // BlackMaskCpn = BlackMask.GetComponent<RawImage>();
+        BlackMaskCpn = BlackMask.GetComponent<Image>();
     }
 
     private void Start()
@@ -184,9 +185,5 @@ public class PanelManager : MonoBehaviour
             yield return null;
         }
         BlackMask.gameObject.SetActive(false);
-    //    if(panelStack.Peek().GetType() == typeof(CutPanel))
-    //    {
-    //        CutManager.Instance.OnFinishLoad();
-    //    }
     }
 }

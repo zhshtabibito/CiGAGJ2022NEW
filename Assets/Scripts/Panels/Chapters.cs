@@ -9,5 +9,7 @@ public class Chapters : MonoBehaviour
     public void LoadSceneByNum(int n)
     {
         SceneManager.LoadScene($"Level{n}");
+        PanelManager.Instance.Pop();
+        PanelManager.Instance.PushWithCutscene(new LevelPanel());
     }
 }
