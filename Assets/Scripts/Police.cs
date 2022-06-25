@@ -50,7 +50,7 @@ public class Police : CharBase
     // Update is called once per frame
     void Update()
     {
-        if(state == PATROL)
+        if (state == PATROL)
         {
             if (RayFan()) // find player
             {
@@ -58,6 +58,11 @@ public class Police : CharBase
                 state = ALERT;
                 StartCoroutine("WaitAndChase");
             }
+        }
+        else if (state == CHASE)
+        {
+
+
         }
     }
 
@@ -174,6 +179,13 @@ public class Police : CharBase
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Game Over");
+            Time.timeScale = 0;
+            PanelManager.Instance.Push(new GameOverPanel());
+        }
+        else if (collision.CompareTag("Shadow"))
+        {
+            // 
+
         }
     }
 
