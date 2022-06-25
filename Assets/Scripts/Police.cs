@@ -48,7 +48,13 @@ public class Police : CharBase
     // Update is called once per frame
     void Update()
     {
-        RayFan();
+        if(state == PATROL)
+        {
+            if (RayFan()) // find player
+            {
+                // 叹号0.5s，开始追
+            }
+        }
     }
 
     private void MoveToPatrolPoint(int id)
@@ -109,14 +115,14 @@ public class Police : CharBase
         }
     }
 
-    //放射线检测
+    // 扇形检测
     private bool RayFan()
     {
-        //一条向前的射线
+        // 一条向前的射线
         if (RayLine(dir))
             return true;
 
-        ////多一个精确度就多两条对称的射线,每条射线夹角是总角度除与精度
+        // 多一个精确度就多两条对称的射线,每条射线夹角是总角度除与精度
         float subAngle = (90f / 2) / SightAccu;
         for (int i = 0; i < SightAccu; i++)
         {
@@ -129,19 +135,23 @@ public class Police : CharBase
         return false;
     }
 
-    //射出射线检测是否有Player
+    // 射出射线检测是否有Player
     private bool RayLine(Vector2 RayDir)
     {
         Debug.DrawRay(transform.position, RayDir.normalized * SightLen, Color.yellow);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, RayDir, SightLen);
-        if(hit.collider != null)
+        RaycastHit2D[] hitList = Physics2D.RaycastAll(transform.position, RayDir, SightLen);
+        for (int i = 0; i < hitList.Length; i++)
         {
-            if (hit.collider.CompareTag("Player"))
+            // Debug.Log(hitList[i].collider.gameObject.name);
+            if (hitList[i].collider != null)
             {
-                Debug.Log("Police find player");
-                return true;
+                if (hitList[i].collider.CompareTag("Player"))
+                {
+                    Debug.Log("Police find player");
+                    return true;
+                }
             }
-        }
+        }   
         return false;
     }
 
