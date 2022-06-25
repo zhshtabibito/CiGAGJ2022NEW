@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RayTest2 : MonoBehaviour
 {
-    private GameObject img;
+    public GameObject img;
     private bool isUse = false;
     void Start()
     {
-        img = Instantiate(GameObject.Find("Img"));
+        img = Instantiate(img,null);
     }
     void Update()
     {
