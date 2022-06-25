@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharBase : MonoBehaviour
 {
     public float spd = 1;
-    public float scale = 1;
+    protected float scale = 1;
 
     // Start is called before the first frame update
     void Start()
