@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 4706977088676458969}
   m_Layer: 3
   m_Name: Mirror2
-  m_TagString: Untagged
+  m_TagString: Mirror2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

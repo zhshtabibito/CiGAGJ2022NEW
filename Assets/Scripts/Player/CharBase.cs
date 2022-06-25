@@ -6,6 +6,7 @@ public class CharBase : MonoBehaviour
 {
     public float spd = 1;
     protected float scale = 1;
+    protected Vector3 dir;
 
     // Start is called before the first frame update
     void Start()

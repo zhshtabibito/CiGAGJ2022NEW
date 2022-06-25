@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : CharBase
 {
     public static Player Instance;
+    public Transform DetectorPrefab;
     public List<GameObject> Detectors;
 
     // Start is called before the first frame update
@@ -17,27 +18,29 @@ public class Player : CharBase
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector2.up * Time.deltaTime * spd);
-            transform.localScale = new Vector3(1, 1, 1) * scale;
+            dir = new Vector3(1, 1, 1);
         }
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector2.left * Time.deltaTime * spd);
-            transform.localScale = new Vector3(-1, 1, 1) * scale;
+            dir = new Vector3(-1, 1, 1);
         }
         if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector2.down * Time.deltaTime * spd);
-            transform.localScale = new Vector3(1, -1, 1) * scale;
+            dir = new Vector3(1, -1, 1);
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector2.right * Time.deltaTime * spd);
-            transform.localScale = new Vector3(1, 1, 1) * scale;
+            dir = new Vector3(1, 1, 1);
         }
-
+        transform.localScale = dir * scale;
+        DetectorPrefab.localScale = dir;
     }
 
     public  Vector3 GetPos()
@@ -52,6 +55,8 @@ public class Player : CharBase
         bool d2 = Detectors[1].GetComponent<Detector>().CheckWall();
         bool d3 = Detectors[2].GetComponent<Detector>().CheckWall();
         bool d4 = Detectors[3].GetComponent<Detector>().CheckWall();
+
+        Debug.Log($"{d1},{d2},{d3},{d4}");
 
         if (d1 && d2 && !d3 && !d4) // ×óÉÏ
             return 4;

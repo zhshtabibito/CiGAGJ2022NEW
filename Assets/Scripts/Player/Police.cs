@@ -14,7 +14,6 @@ public class Police : CharBase
     // Move related
     private bool isMoving = false;
     private Vector3 startPos;
-    private Vector3 dir;
     private Coroutine coroutine;
 
     // State
