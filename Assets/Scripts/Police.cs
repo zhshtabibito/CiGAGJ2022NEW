@@ -11,11 +11,32 @@ public class Police : CharBase
     private Vector3 startPos;
     private Coroutine coroutine;
 
+    // State
+    public int state = 1;
+
+    private int STAND = 0;
+    private int PATROL = 1;
+    private int ALERT = 2;
+    private int CHASE = 3; 
+    private int ATTACK = 4;
+
+
+    // Patrol
+    private int PatrolLenth;
+    private int PatrolNext = 1;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         scale = Mathf.Abs(transform.localScale.x);
+        
         startPos = transform.position;
+
+        PatrolLenth = PatrolList.Count;
+
+        MoveToPatrolPoint(PatrolNext);
     }
 
     // Update is called once per frame
@@ -24,11 +45,14 @@ public class Police : CharBase
         
     }
 
+    private void MoveToPatrolPoint(int id)
+    {
+        MoveToObject(PatrolList[id].transform);
+    }
+
     private void MoveToObject(Transform obj)
     {
         Vector2 d = obj.position - transform.position;
-
-
 
         if (d.x < -0.1f) // left
         {
@@ -67,6 +91,12 @@ public class Police : CharBase
         startPos = transform.position;
         // anime state
         isMoving = false;
+
+        if(state == PATROL)
+        {
+            PatrolNext = (PatrolNext + 1) % PatrolLenth;
+            MoveToPatrolPoint(PatrolNext);
+        }
     }
 
 
