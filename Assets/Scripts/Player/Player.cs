@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Player : CharBase
 {
+    public static Player Instance;
+
     // Start is called before the first frame update
      void Start()
     {
+        Instance = this;
         scale = Mathf.Abs(transform.localScale.x);   
     }
 
@@ -35,4 +38,10 @@ public class Player : CharBase
         }
 
     }
+
+    public  Vector3 GetPos()
+    {
+        return new Vector3(transform.position.x, transform.position.y, transform.position.z);
+    }
+
 }
