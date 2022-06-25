@@ -33,7 +33,7 @@ public class StartPanel : BasePanel
             Pop();
             SceneManager.LoadScene("Level1");
 
-            panelManager.PushWithCutscene(new LevelPanel());
+            panelManager.Push(new LevelPanel());
         }
     }
 

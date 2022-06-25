@@ -10,6 +10,6 @@ public class Chapters : MonoBehaviour
     {
         SceneManager.LoadScene($"Level{n}");
         PanelManager.Instance.Pop();
-        PanelManager.Instance.PushWithCutscene(new LevelPanel());
+        PanelManager.Instance.Push(new LevelPanel());
     }
 }
