@@ -1853,6 +1853,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8310724736259349077, guid: 85692f30f41349149b692b91c4873b3e, type: 3}
   m_PrefabInstance: {fileID: 280142477}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &280142479 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8310724736259349078, guid: 85692f30f41349149b692b91c4873b3e, type: 3}
+  m_PrefabInstance: {fileID: 280142477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &280978485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7359,6 +7364,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8310724736259349077, guid: 85692f30f41349149b692b91c4873b3e, type: 3}
   m_PrefabInstance: {fileID: 858145181}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &858145183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8310724736259349078, guid: 85692f30f41349149b692b91c4873b3e, type: 3}
+  m_PrefabInstance: {fileID: 858145181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &883491039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8481,6 +8491,11 @@ PrefabInstance:
 --- !u!4 &988891266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8310724736259349077, guid: 85692f30f41349149b692b91c4873b3e, type: 3}
+  m_PrefabInstance: {fileID: 988891265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &988891267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8310724736259349078, guid: 85692f30f41349149b692b91c4873b3e, type: 3}
   m_PrefabInstance: {fileID: 988891265}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &997161091
@@ -15580,6 +15595,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8310724736259349077, guid: 85692f30f41349149b692b91c4873b3e, type: 3}
   m_PrefabInstance: {fileID: 1697105579}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1697105581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8310724736259349078, guid: 85692f30f41349149b692b91c4873b3e, type: 3}
+  m_PrefabInstance: {fileID: 1697105579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1700758005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20606,6 +20626,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2137648523}
     m_Modifications:
+    - target: {fileID: 1060736579825225884, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
+      propertyPath: PatrolList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060736579825225884, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
+      propertyPath: PatrolList.Array.data[0]
+      value: 
+      objectReference: {fileID: 280142479}
+    - target: {fileID: 1060736579825225884, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
+      propertyPath: PatrolList.Array.data[1]
+      value: 
+      objectReference: {fileID: 988891267}
+    - target: {fileID: 1060736579825225884, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
+      propertyPath: PatrolList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1697105581}
+    - target: {fileID: 1060736579825225884, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
+      propertyPath: PatrolList.Array.data[3]
+      value: 
+      objectReference: {fileID: 858145183}
     - target: {fileID: 2906483680942573980, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
       propertyPath: m_Name
       value: Police
