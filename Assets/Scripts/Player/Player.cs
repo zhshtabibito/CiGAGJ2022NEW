@@ -5,8 +5,7 @@ using UnityEngine;
 public class Player : CharBase
 {
     public static Player Instance;
-    public Transform DetectorPrefab;
-    public List<GameObject> Detectors;
+
 
     // Start is called before the first frame update
      void Start()
