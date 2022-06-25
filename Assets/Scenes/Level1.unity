@@ -20479,7 +20479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelID: 0
-  MirrorNum: 1
+  MirrorNum: 2
 --- !u!1001 &2138139411
 PrefabInstance:
   m_ObjectHideFlags: 0

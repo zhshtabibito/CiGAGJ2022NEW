@@ -3586,8 +3586,6 @@ GameObject:
   m_Component:
   - component: {fileID: 568116301}
   - component: {fileID: 568116300}
-  - component: {fileID: 568116299}
-  - component: {fileID: 568116298}
   m_Layer: 0
   m_Name: LevelRoot
   m_TagString: Untagged
@@ -3595,34 +3593,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &568116298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568116297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a931fd27d09b241a467d0c1f1910a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelID: 0
-  MirrorNum: 1
---- !u!114 &568116299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568116297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a931fd27d09b241a467d0c1f1910a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelID: 0
-  MirrorNum: 1
 --- !u!114 &568116300
 MonoBehaviour:
   m_ObjectHideFlags: 0
