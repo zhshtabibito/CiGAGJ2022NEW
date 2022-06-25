@@ -8,6 +8,8 @@ TagManager:
   - Mirror2
   - Mirror3
   - Mirror4
+  - Wall
+  - Shadow
   layers:
   - Default
   - TransparentFX
