@@ -37,11 +37,12 @@ public class LevelInfo : MonoBehaviour
             {
                 foreach (GameObject m in MirrorList)
                 {
-                    if (Mathf.Abs(m.transform.position.x - player.position.x) < 0.5f ||
+                    if (Mathf.Abs(m.transform.position.x - player.position.x) < 0.5f &&
                         Mathf.Abs(m.transform.position.y - player.position.y) < 0.5f)
                     {
                         MirrorList.Remove(m);
                         MirrorLeft++;
+                        SetNum();
                         Object.Destroy(m);
                         return;
                     }
@@ -67,13 +68,14 @@ public class LevelInfo : MonoBehaviour
         m.transform.position = AllignPos();
         MirrorList.Add(m);
         MirrorLeft--;
+        SetNum();
     }
 
     private Vector3 AllignPos()
     {
         float x = Mathf.Round(player.position.x * 2) / 2;
         float y = Mathf.Round(player.position.y * 2) / 2;
-        return new Vector3(x, y, 0);
+        return new Vector3(x, y, -1);
     }
 
 
