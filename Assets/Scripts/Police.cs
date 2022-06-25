@@ -5,6 +5,8 @@ using UnityEngine;
 public class Police : CharBase
 {
     public List<GameObject> PatrolList;
+    public GameObject AlertMark;
+    public GameObject QuestionMark;
 
     // Move related
     private bool isMoving = false;
@@ -52,10 +54,21 @@ public class Police : CharBase
         {
             if (RayFan()) // find player
             {
-                // Ì¾ºÅ0.5s£¬¿ªÊ¼×·
+                StopCoroutine(coroutine);
+                state = ALERT;
+                StartCoroutine("WaitAndChase");
             }
         }
     }
+
+    private IEnumerator WaitAndChase()
+    {
+        AlertMark.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        AlertMark.SetActive(false);
+        state = CHASE;
+    }
+
 
     private void MoveToPatrolPoint(int id)
     {
@@ -153,6 +166,14 @@ public class Police : CharBase
             }
         }   
         return false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Game Over");
+        }
     }
 
 
