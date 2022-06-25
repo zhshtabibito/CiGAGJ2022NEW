@@ -9,6 +9,7 @@ public class Police : CharBase
     // Move related
     private bool isMoving = false;
     private Vector3 startPos;
+    private Vector3 dir;
     private Coroutine coroutine;
 
     // State
@@ -25,13 +26,18 @@ public class Police : CharBase
     private int PatrolLenth;
     private int PatrolNext = 1;
 
+    // Look
+    private float SightLen = 2;
+    public float SightAccu = 2;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        dir = new Vector3(1, 0, 0);
         scale = Mathf.Abs(transform.localScale.x);
-        
+
         startPos = transform.position;
 
         PatrolLenth = PatrolList.Count;
@@ -42,7 +48,7 @@ public class Police : CharBase
     // Update is called once per frame
     void Update()
     {
-        
+        RayFan();
     }
 
     private void MoveToPatrolPoint(int id)
@@ -56,18 +62,22 @@ public class Police : CharBase
 
         if (d.x < -0.1f) // left
         {
+            dir = new Vector3(-1, 0, 0);
             transform.localScale = new Vector3(-1, 1, 1) * scale;
         }
         else if (d.x > 0.1f) // right
         {
+            dir = new Vector3(1, 0, 0);
             transform.localScale = new Vector3(1, 1, 1) * scale;
         }
         else if(d.y < -0.1f) // down
         {
+            dir = new Vector3(0, -1, 0);
             transform.localScale = new Vector3(1, -1, 1) * scale;
         }
         else if (d.y > 0.1f) // up
         {
+            dir = new Vector3(0, 1, 0);
             transform.localScale = new Vector3(1, 1, 1) * scale;
         }
 
@@ -99,8 +109,41 @@ public class Police : CharBase
         }
     }
 
+    //放射线检测
+    private bool RayFan()
+    {
+        //一条向前的射线
+        if (RayLine(dir))
+            return true;
 
+        ////多一个精确度就多两条对称的射线,每条射线夹角是总角度除与精度
+        float subAngle = (90f / 2) / SightAccu;
+        for (int i = 0; i < SightAccu; i++)
+        {
+            Vector3 A1 = Quaternion.Euler(0, 0, subAngle * (i + 1)) * dir;
+            Vector3 A2 = Quaternion.Euler(0, 0, -1 * subAngle * (i + 1)) * dir;
 
+            if (RayLine(new Vector2(A1.x,A1.y)) || RayLine(new Vector2(A2.x, A2.y)))
+                return true;
+        }
+        return false;
+    }
+
+    //射出射线检测是否有Player
+    private bool RayLine(Vector2 RayDir)
+    {
+        Debug.DrawRay(transform.position, RayDir.normalized * SightLen, Color.yellow);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, RayDir, SightLen);
+        if(hit.collider != null)
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                Debug.Log("Police find player");
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 
