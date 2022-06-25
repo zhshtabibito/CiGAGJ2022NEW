@@ -8,6 +8,9 @@ public class Police : CharBase
     public GameObject AlertMark;
     public GameObject QuestionMark;
 
+    public float spdPatrol = 1;
+    public float spdChase = 2;
+
     // Move related
     private bool isMoving = false;
     private Vector3 startPos;
@@ -32,19 +35,23 @@ public class Police : CharBase
     private float SightLen = 2;
     public float SightAccu = 2;
 
-
+    // Chase
+    public List<GameObject> ChaseList;
+    private int ChaseNext = 0;
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
         dir = new Vector3(1, 0, 0);
+        spd = spdPatrol;
         scale = Mathf.Abs(transform.localScale.x);
 
         startPos = transform.position;
-
         PatrolLenth = PatrolList.Count;
 
         MoveToPatrolPoint(PatrolNext);
+        player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
@@ -56,6 +63,8 @@ public class Police : CharBase
             {
                 StopCoroutine(coroutine);
                 state = ALERT;
+                ChaseList.Add(new GameObject());
+                ChaseList[0].transform.position = GetPlayerPos();
                 StartCoroutine("WaitAndChase");
             }
         }
@@ -66,6 +75,11 @@ public class Police : CharBase
         }
     }
 
+    private Vector3 GetPlayerPos()
+    {
+        return new Vector3(player.position.x, player.position.y, player.position.z);
+    }
+
     private IEnumerator WaitAndChase()
     {
         AlertMark.SetActive(true);
@@ -73,6 +87,12 @@ public class Police : CharBase
         AlertMark.SetActive(false);
         state = CHASE;
         Debug.Log("start chase");
+        MoveToChasePoint(ChaseNext); // ChaseNext = 0
+    }
+
+    private void MoveToChasePoint(int id)
+    {
+        MoveToObject(ChaseList[id].transform);
     }
 
 
@@ -132,6 +152,14 @@ public class Police : CharBase
             PatrolNext = (PatrolNext + 1) % PatrolLenth;
             MoveToPatrolPoint(PatrolNext);
         }
+        else if(state == CHASE)
+        {
+            // 直接ray，有就追，清空list加当前玩家位置
+
+            // 检查路点数量
+
+
+        }
     }
 
     // 扇形检测
@@ -184,8 +212,8 @@ public class Police : CharBase
         }
         else if (collision.CompareTag("Shadow"))
         {
-            // 
-
+            // 影子消失，镜子失效
+            // 警察疑惑，回到巡逻点
         }
     }
 
