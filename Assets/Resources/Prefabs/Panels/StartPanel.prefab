@@ -794,6 +794,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1221430103445391197, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
+      propertyPath: m_text
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7139487279834094488, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1066,6 +1070,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1221430103445391197, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
+      propertyPath: m_text
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7139487279834094488, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1199,6 +1207,10 @@ PrefabInstance:
     - target: {fileID: 770930747874057426, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221430103445391197, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
+      propertyPath: m_text
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7139487279834094488, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
       propertyPath: m_Pivot.x
@@ -1472,6 +1484,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1221430103445391197, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
+      propertyPath: m_text
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7139487279834094488, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1606,6 +1622,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1221430103445391197, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
+      propertyPath: m_text
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7139487279834094488, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1739,6 +1759,10 @@ PrefabInstance:
     - target: {fileID: 770930747874057426, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221430103445391197, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
+      propertyPath: m_text
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7139487279834094488, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
       propertyPath: m_Pivot.x
@@ -2011,6 +2035,10 @@ PrefabInstance:
     - target: {fileID: 770930747874057426, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221430103445391197, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
+      propertyPath: m_text
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7139487279834094488, guid: f6d97a054c4537f4099b161166bd438a, type: 3}
       propertyPath: m_Pivot.x

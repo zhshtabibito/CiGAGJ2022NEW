@@ -32,7 +32,6 @@ public class StartPanel : BasePanel
         {
             Pop();
             SceneManager.LoadScene("Level1");
-
             panelManager.Push(new LevelPanel());
         }
     }
