@@ -32,12 +32,16 @@ public class Police : CharBase
     private int PatrolNext = 1;
 
     // Look
-    private float SightLen = 2;
-    public float SightAccu = 2;
+    public float SightLen = 1;
+    private float SightAccu = 12;
 
     // Chase
-    public List<GameObject> ChaseList;
-    private int ChaseNext = 0;
+    // public List<GameObject> ChaseList;
+    // private int ChaseNext = 0;
+
+    private GameObject target;
+    private List<Transform> TargetList;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +52,8 @@ public class Police : CharBase
 
         startPos = transform.position;
         PatrolLenth = PatrolList.Count;
+
+        TargetList = new List<Transform>();
 
         MoveToPatrolPoint(PatrolNext);
     }
@@ -60,18 +66,27 @@ public class Police : CharBase
             if (RayFan()) // find player
             {
                 StopCoroutine(coroutine);
+                startPos = transform.position;
                 state = ALERT;
-                ChaseList.Add(new GameObject());
-                ChaseList[0].transform.position = Player.Instance.GetPos();
                 StartCoroutine("WaitAndChase");
             }
         }
-        else if (state == CHASE)
+        else if (state == CHASE && !isMoving)
         {
+            if (RayFan())
+            {
+                //追target
 
-
+            }
         }
     }
+
+    private void MoveToTar()
+    {
+
+
+    }
+
 
 
     private IEnumerator WaitAndChase()
@@ -81,13 +96,13 @@ public class Police : CharBase
         AlertMark.SetActive(false);
         state = CHASE;
         Debug.Log("start chase");
-        MoveToChasePoint(ChaseNext); // ChaseNext = 0
+        // MoveToChasePoint(ChaseNext); // ChaseNext = 0
     }
 
-    private void MoveToChasePoint(int id)
-    {
-        MoveToObject(ChaseList[id].transform);
-    }
+    //private void MoveToChasePoint(int id)
+    //{
+    //    MoveToObject(ChaseList[id].transform);
+    //}
 
 
     private void MoveToPatrolPoint(int id)
@@ -156,28 +171,54 @@ public class Police : CharBase
         }
     }
 
-    // 扇形检测
+    // 扇形检测 -> ○
     private bool RayFan()
     {
         // 一条向前的射线
-        if (RayLine(dir))
-            return true;
+        //if (RayLine(dir))
+        //    return true;
 
         // 多一个精确度就多两条对称的射线,每条射线夹角是总角度除与精度
-        float subAngle = (90f / 2) / SightAccu;
+        //float subAngle = (90f / 2) / SightAccu;
+        //for (int i = 0; i < SightAccu; i++)
+        //{
+        //    Vector3 A1 = Quaternion.Euler(0, 0, subAngle * (i + 1)) * dir;
+        //    Vector3 A2 = Quaternion.Euler(0, 0, -1 * subAngle * (i + 1)) * dir;
+
+        //    if (RayLine(new Vector2(A1.x,A1.y)) || RayLine(new Vector2(A2.x, A2.y)))
+        //        return true;
+        //}
+
+        float subAngle = 360f / SightAccu;
         for (int i = 0; i < SightAccu; i++)
         {
-            Vector3 A1 = Quaternion.Euler(0, 0, subAngle * (i + 1)) * dir;
-            Vector3 A2 = Quaternion.Euler(0, 0, -1 * subAngle * (i + 1)) * dir;
-
-            if (RayLine(new Vector2(A1.x,A1.y)) || RayLine(new Vector2(A2.x, A2.y)))
-                return true;
+            Vector3 A = Quaternion.Euler(0, 0, subAngle * (i)) * dir;
+            RayLine(new Vector2(A.x, A.y));
         }
-        return false;
+        if(TargetList.Count > 0)
+        {
+            float d = 99999f;
+            foreach(Transform t in TargetList)
+            {
+                float dd = (t.position - transform.position).magnitude;
+                if ( dd< d)
+                {
+                    target = t.gameObject;
+                    d = dd;
+                }
+            }
+            TargetList.Clear();
+            return true;
+        }
+        else
+        {
+            // 啥也没发现
+            return false;
+        }
     }
 
     // 射出射线检测是否有Player
-    private bool RayLine(Vector2 RayDir)
+    private void RayLine(Vector2 RayDir)
     {
         Debug.DrawRay(transform.position, RayDir.normalized * SightLen, Color.yellow);
         RaycastHit2D[] hitList = Physics2D.RaycastAll(transform.position, RayDir, SightLen);
@@ -186,14 +227,16 @@ public class Police : CharBase
             // Debug.Log(hitList[i].collider.gameObject.name);
             if (hitList[i].collider != null)
             {
-                if (hitList[i].collider.CompareTag("Player"))
+                if (hitList[i].collider.CompareTag("Player") || hitList[i].collider.CompareTag("Shadow"))
                 {
-                    Debug.Log("Police find player");
-                    return true;
+                    Debug.Log("Police find sth");
+                    if (!TargetList.Contains(hitList[i].collider.transform))
+                    {
+                        TargetList.Add(hitList[i].collider.transform);
+                    }
                 }
             }
         }   
-        return false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
