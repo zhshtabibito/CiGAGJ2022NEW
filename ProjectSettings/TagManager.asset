@@ -50,6 +50,15 @@ TagManager:
   - name: wall
     uniqueID: 468343819
     locked: 0
+  - name: wallpaper
+    uniqueID: 509955303
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: player
+    uniqueID: 374628465
+    locked: 0
+  - name: police
+    uniqueID: 4146705723
     locked: 0
