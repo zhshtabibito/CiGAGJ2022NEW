@@ -115,6 +115,7 @@ public class Police : CharBase
     private void MoveToTar()
     {
         Vector3 d = target.transform.position - transform.position;
+        // Debug.Log($"{d},{!Detectors[0].GetComponent<Detector>().CheckWall()},{!Detectors[1].GetComponent<Detector>().CheckWall()},{!Detectors[2].GetComponent<Detector>().CheckWall()},{!Detectors[3].GetComponent<Detector>().CheckWall()}");
         List<int> ways = new List<int>();
         if (d.x < 0 && !Detectors[0].GetComponent<Detector>().CheckWall())
         {
@@ -124,16 +125,16 @@ public class Police : CharBase
         {
             ways.Add(2);
         }
-        else if (d.x > 0 && !Detectors[2].GetComponent<Detector>().CheckWall())
+        if (d.x > 0 && !Detectors[2].GetComponent<Detector>().CheckWall())
         {
             ways.Add(3);
         }
-        else if (d.y < 0 && !Detectors[3].GetComponent<Detector>().CheckWall())
+        if (d.y < 0 && !Detectors[3].GetComponent<Detector>().CheckWall())
         {
             ways.Add(4);
         }
-
         int p = Random.Range(0, ways.Count);
+
         switch (ways[p])
         {
             case 1: 
