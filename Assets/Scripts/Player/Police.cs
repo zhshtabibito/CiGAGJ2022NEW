@@ -83,7 +83,7 @@ public class Police : CharBase
             }
             else
             {
-                // dizzy, back
+                StartCoroutine("DizzyAndBack");
             }
         }
         else if(state == BACK && !isMoving)
@@ -127,7 +127,20 @@ public class Police : CharBase
 
     }
 
-    private IEnumerator WaitAndChase()
+    private IEnumerator DizzyAndBack()
+    {
+        QuestionMark.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+
+        yield return new WaitForSeconds(0.5f);
+
+        yield return new WaitForSeconds(0.5f);
+
+        yield return new WaitForSeconds(0.5f);
+
+    }
+
+        private IEnumerator WaitAndChase()
     {
         AlertMark.SetActive(true);
         yield return new WaitForSeconds(0.5f);
