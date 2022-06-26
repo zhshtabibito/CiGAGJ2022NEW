@@ -195,7 +195,12 @@ public class Police : CharBase
 
         if (state == CHASE)
         {
+            spd = spdChase;
             ChasePointList.Add(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+        }
+        else
+        {
+            spd = spdPatrol;
         }
 
         float t = (tar - startPos).magnitude / spd;
