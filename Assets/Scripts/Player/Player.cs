@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : CharBase
 {
     public static Player Instance;
-    private bool prepared = false;
+    public bool prepared = false;
     private Vector3 BirthPos;
 
     // Start is called before the first frame update
