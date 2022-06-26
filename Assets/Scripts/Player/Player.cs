@@ -25,7 +25,7 @@ public class Player : CharBase
             GameObject.Find("LevelRoot").GetComponent<LevelInfo>().OnPrepared();
             PanelManager.Instance.Pop();
             // place menu button
-
+            prepared = true;
             transform.position = BirthPos;
         }
 

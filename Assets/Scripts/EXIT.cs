@@ -20,7 +20,9 @@ public class EXIT : MonoBehaviour
     {
         if(collision.CompareTag("Player") && Player.Instance.prepared)
         {
-
+            Debug.Log("Player EXIT");
+            Time.timeScale = 0;
+            PanelManager.Instance.Push(new NextLevelPanel());
         }
     }
 }

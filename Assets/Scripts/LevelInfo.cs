@@ -25,6 +25,8 @@ public class LevelInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
+
         MirrorLeft = MirrorNum;
         numObj = GameObject.Find("TextMirrorNum").transform;
         SetNum();
