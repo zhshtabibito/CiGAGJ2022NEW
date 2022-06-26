@@ -298,7 +298,12 @@ public class Police : CharBase
         }
         else if (collision.CompareTag("Shadow"))
         {
-        
+            // fuck mirror and shadow here
+
+
+
+            // ai behave
+
         }
     }
 
