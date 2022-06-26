@@ -40,12 +40,14 @@ public class StartPanel : BasePanel
     {
         base.OnEnter();
         Chapters = ActivePanel.Find("Chapters");
+        GameObject.Find("NBVideo").SetActive(true);
     }
 
     public override void OnExit(bool isDestroy = false)
     {
         base.OnExit(isDestroy);
         Chapters.gameObject.SetActive(false);
+        GameObject.Find("NBVideo").SetActive(false);
     }
 
 }
