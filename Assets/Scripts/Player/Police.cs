@@ -138,13 +138,13 @@ public class Police : CharBase
         state = DIZZY;
         QuestionMark.SetActive(true);
         int temp = WASD;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         SetDir((WASD + 1) == 5 ? 1 : (WASD + 1));
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         SetDir(temp);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         SetDir((WASD - 1) == 0 ? 4 : (WASD - 1));
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         SetDir(temp);
         QuestionMark.SetActive(false);
         state = BACK;
