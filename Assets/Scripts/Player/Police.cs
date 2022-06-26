@@ -305,6 +305,8 @@ public class Police : CharBase
         }
         else if (collision.CompareTag("Shadow"))
         {
+            Debug.Log("shadow");
+            collision.GetComponent<Img>().isCaught = true;
             // fuck mirror and shadow here
 
 
