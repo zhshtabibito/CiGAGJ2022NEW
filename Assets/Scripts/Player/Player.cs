@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : CharBase
 {
     public static Player Instance;
-
+    private bool prepared = false;
 
     // Start is called before the first frame update
      void Start()
@@ -18,6 +18,13 @@ public class Player : CharBase
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Return) && !prepared)
+        {
+            GameObject.Find("LevelRoot").GetComponent<LevelInfo>().OnPrepared();
+            PanelManager.Instance.Pop();
+            // place menu button
+        }
+
 
         if (Input.GetKey(KeyCode.W))
         {

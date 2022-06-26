@@ -17,7 +17,7 @@ public class Police : CharBase
     private Coroutine coroutine;
 
     // State
-    public int state = 1;
+    public int state = 0;
 
     private int STAND = 0;
     private int PATROL = 1;
@@ -44,6 +44,10 @@ public class Police : CharBase
     private List<Transform> TargetList;
     private List<Vector3> ChasePointList;
 
+    public void OnPrepared()
+    {
+        state = 1;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -65,11 +69,11 @@ public class Police : CharBase
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log(state);
         }
-        Debug.Log(state);
+
         if (state == PATROL || state == DIZZY ||state == BACK)
         {
             if (RayFan()) // find player
@@ -290,6 +294,9 @@ public class Police : CharBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (state == STAND)
+            return;
+
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Game Over");
