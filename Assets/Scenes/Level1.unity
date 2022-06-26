@@ -21994,7 +21994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a931fd27d09b241a467d0c1f1910a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelID: 0
+  LevelID: 3
   MirrorNum: 2
   PoliceList:
   - {fileID: 2229364214065446968}
@@ -22105,7 +22105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3974920610354562816, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3974920610354562816, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
       propertyPath: m_LocalPosition.z
