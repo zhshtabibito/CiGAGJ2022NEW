@@ -51,6 +51,7 @@ public class Police : CharBase
         dir = new Vector3(1, 0, 0);
         spd = spdPatrol;
         scale = Mathf.Abs(transform.localScale.x);
+        animator = GetComponent<Animator>();
 
         startPos = transform.position;
         PatrolLenth = PatrolList.Count;
@@ -167,19 +168,19 @@ public class Police : CharBase
 
         if (d.x < -0.1f) // left
         {
-            dir = new Vector3(-1, 1, 1);
+            SetDir(2);
         }
         else if (d.x > 0.1f) // right
         {
-            dir = new Vector3(1, 1, 1);
+            SetDir(4);
         }
         else if (d.y < -0.1f) // down
         {
-            dir = new Vector3(1, -1, 1);
+            SetDir(3);
         }
         else if (d.y > 0.1f) // up
         {
-            dir = new Vector3(1, 1, 1);
+            SetDir(1);
         }
         transform.localScale = dir * scale;
 

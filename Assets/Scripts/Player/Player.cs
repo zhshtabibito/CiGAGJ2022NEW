@@ -11,7 +11,8 @@ public class Player : CharBase
      void Start()
     {
         Instance = this;
-        scale = Mathf.Abs(transform.localScale.x);   
+        scale = Mathf.Abs(transform.localScale.x);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,22 +22,22 @@ public class Player : CharBase
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector2.up * Time.deltaTime * spd);
-            dir = new Vector3(1, 1, 1);
+            SetDir(1);
         }
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector2.left * Time.deltaTime * spd);
-            dir = new Vector3(-1, 1, 1);
+            SetDir(2);
         }
         if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector2.down * Time.deltaTime * spd);
-            dir = new Vector3(1, -1, 1);
+            SetDir(3);
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector2.right * Time.deltaTime * spd);
-            dir = new Vector3(1, 1, 1);
+            SetDir(4);
         }
         transform.localScale = dir * scale;
         DetectorPrefab.localScale = dir;

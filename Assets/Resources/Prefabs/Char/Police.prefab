@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2989999447844413885}
   - component: {fileID: 7048961353389107985}
   - component: {fileID: 2202831561119190607}
+  - component: {fileID: 3698776988787863864}
   m_Layer: 0
   m_Name: Police
   m_TagString: Untagged
@@ -316,6 +317,26 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &3698776988787863864
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2906483680942573980}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8eb06567ead0ccc49848c0300c0fe0fb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4320748423855979205
 GameObject:
   m_ObjectHideFlags: 0
