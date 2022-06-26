@@ -16,10 +16,14 @@ public class PanelManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
         DontDestroyOnLoad(this);
-
-        Screen.SetResolution(444, 960, false);
 
         dictUI = new Dictionary<string, GameObject>();
         dictPanel = new Dictionary<string, BasePanel>();
