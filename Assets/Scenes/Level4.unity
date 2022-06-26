@@ -3817,15 +3817,15 @@ Transform:
   - {fileID: 169881472}
   - {fileID: 1954701779}
   - {fileID: 2075709201}
-  - {fileID: 1875210087}
-  - {fileID: 385684514}
-  - {fileID: 198216882}
-  - {fileID: 1279984731}
-  - {fileID: 2080421921}
   - {fileID: 1220194628}
+  - {fileID: 1875210087}
+  - {fileID: 2080421921}
+  - {fileID: 1279984731}
+  - {fileID: 385684514}
   - {fileID: 1794483520}
-  - {fileID: 1119766691}
+  - {fileID: 198216882}
   - {fileID: 2063191787}
+  - {fileID: 1119766691}
   - {fileID: 1489982535}
   - {fileID: 64317133}
   m_Father: {fileID: 1096871885}
@@ -9664,6 +9664,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelID: 0
   MirrorNum: 2
+  PoliceList:
+  - {fileID: 1622484104}
 --- !u!4 &1096871885
 Transform:
   m_ObjectHideFlags: 0
@@ -13352,6 +13354,11 @@ PrefabInstance:
 --- !u!4 &1622484103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3974920610354562816, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
+  m_PrefabInstance: {fileID: 1622484102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1622484104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2906483680942573980, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
   m_PrefabInstance: {fileID: 1622484102}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1629474020

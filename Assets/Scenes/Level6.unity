@@ -10790,22 +10790,22 @@ Transform:
   - {fileID: 1621145539}
   - {fileID: 836494655}
   - {fileID: 72665782}
-  - {fileID: 1519702343}
-  - {fileID: 673130154}
-  - {fileID: 9872773}
-  - {fileID: 95123120}
-  - {fileID: 1667375992}
-  - {fileID: 577853966}
-  - {fileID: 463721318}
-  - {fileID: 220034643}
-  - {fileID: 308963084}
   - {fileID: 421792254}
-  - {fileID: 1355340809}
+  - {fileID: 673130154}
+  - {fileID: 1667375992}
+  - {fileID: 1519702343}
   - {fileID: 603423728}
-  - {fileID: 1015474283}
+  - {fileID: 308963084}
+  - {fileID: 220034643}
+  - {fileID: 1355340809}
   - {fileID: 1131502215}
+  - {fileID: 9872773}
+  - {fileID: 1015474283}
+  - {fileID: 95123120}
   - {fileID: 1425336079}
   - {fileID: 1253747336}
+  - {fileID: 577853966}
+  - {fileID: 463721318}
   m_Father: {fileID: 1176182965}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12798,6 +12798,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelID: 0
   MirrorNum: 2
+  PoliceList:
+  - {fileID: 1275496677}
 --- !u!4 &1176182965
 Transform:
   m_ObjectHideFlags: 0
@@ -13916,6 +13918,11 @@ PrefabInstance:
 --- !u!4 &1275496676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3974920610354562816, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
+  m_PrefabInstance: {fileID: 1275496675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1275496677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2906483680942573980, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
   m_PrefabInstance: {fileID: 1275496675}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1277924732

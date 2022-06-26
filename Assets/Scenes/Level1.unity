@@ -21925,6 +21925,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelID: 0
   MirrorNum: 2
+  PoliceList:
+  - {fileID: 2229364214065446968}
 --- !u!1001 &2138139411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22071,5 +22073,10 @@ PrefabInstance:
 --- !u!4 &2229364214065446967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3974920610354562816, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
+  m_PrefabInstance: {fileID: 2229364214065446966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2229364214065446968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2906483680942573980, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
   m_PrefabInstance: {fileID: 2229364214065446966}
   m_PrefabAsset: {fileID: 0}

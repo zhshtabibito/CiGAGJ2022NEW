@@ -6373,6 +6373,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3974920610354562816, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
   m_PrefabInstance: {fileID: 804761176}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &804761178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2906483680942573980, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
+  m_PrefabInstance: {fileID: 804761176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &817156886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11247,6 +11252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelID: 0
   MirrorNum: 1
+  PoliceList:
+  - {fileID: 804761178}
 --- !u!4 &1531310434
 Transform:
   m_ObjectHideFlags: 0
@@ -14447,11 +14454,11 @@ Transform:
   - {fileID: 2016215982}
   - {fileID: 215698509}
   - {fileID: 956702484}
+  - {fileID: 1145976020}
   - {fileID: 483722514}
   - {fileID: 1868786727}
-  - {fileID: 1145976020}
-  - {fileID: 1808390136}
   - {fileID: 541745643}
+  - {fileID: 1808390136}
   - {fileID: 934512299}
   - {fileID: 1264357004}
   m_Father: {fileID: 1531310434}

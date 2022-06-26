@@ -1397,34 +1397,34 @@ Transform:
   - {fileID: 2088291280}
   - {fileID: 1758296591}
   - {fileID: 888018301}
+  - {fileID: 862725189}
   - {fileID: 927746498}
   - {fileID: 1829713350}
   - {fileID: 982306410}
-  - {fileID: 1664881600}
+  - {fileID: 206780215}
   - {fileID: 110854222}
-  - {fileID: 1675006022}
+  - {fileID: 1058832910}
   - {fileID: 921559194}
   - {fileID: 265114097}
-  - {fileID: 206780215}
-  - {fileID: 862725189}
-  - {fileID: 1058832910}
-  - {fileID: 1191651491}
-  - {fileID: 2099791115}
   - {fileID: 928474488}
   - {fileID: 636199199}
   - {fileID: 1806313467}
+  - {fileID: 1191651491}
   - {fileID: 598549269}
   - {fileID: 1272655531}
+  - {fileID: 2099791115}
   - {fileID: 871349254}
   - {fileID: 1135706053}
   - {fileID: 730362576}
   - {fileID: 948439179}
   - {fileID: 1937794499}
   - {fileID: 1773596031}
+  - {fileID: 1664881600}
   - {fileID: 431890519}
   - {fileID: 670061163}
   - {fileID: 768657972}
   - {fileID: 1066004026}
+  - {fileID: 1675006022}
   - {fileID: 197572309}
   - {fileID: 1999887583}
   - {fileID: 598239288}
@@ -2909,6 +2909,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3974920610354562816, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
   m_PrefabInstance: {fileID: 418830098}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &418830100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2906483680942573980, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
+  m_PrefabInstance: {fileID: 418830098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &431890518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3937,6 +3942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelID: 0
   MirrorNum: 1
+  PoliceList:
+  - {fileID: 418830100}
 --- !u!4 &568116301
 Transform:
   m_ObjectHideFlags: 0
@@ -15072,24 +15079,24 @@ Transform:
   m_Children:
   - {fileID: 238986496}
   - {fileID: 157122847}
-  - {fileID: 669253659}
   - {fileID: 734024090}
-  - {fileID: 1645546772}
+  - {fileID: 669253659}
   - {fileID: 1250477064}
+  - {fileID: 1645546772}
   - {fileID: 80565697}
+  - {fileID: 1159377298}
   - {fileID: 1069019223}
   - {fileID: 1805951837}
   - {fileID: 2074215297}
   - {fileID: 1960088958}
-  - {fileID: 835498360}
-  - {fileID: 1159377298}
-  - {fileID: 569758087}
   - {fileID: 1387447862}
-  - {fileID: 1610806197}
-  - {fileID: 1377505233}
+  - {fileID: 835498360}
   - {fileID: 854394274}
   - {fileID: 1834744619}
+  - {fileID: 569758087}
+  - {fileID: 1377505233}
   - {fileID: 918588795}
+  - {fileID: 1610806197}
   - {fileID: 2042833591}
   - {fileID: 968678059}
   - {fileID: 1421991977}
