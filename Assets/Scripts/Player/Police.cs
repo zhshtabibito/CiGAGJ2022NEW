@@ -115,21 +115,41 @@ public class Police : CharBase
     private void MoveToTar()
     {
         Vector3 d = target.transform.position - transform.position;
+        List<int> ways = new List<int>();
         if (d.x < 0 && !Detectors[0].GetComponent<Detector>().CheckWall())
         {
-            coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(-0.5f, 0, 0))));
+            ways.Add(1);
         }
-        else if (d.y > 0 && !Detectors[1].GetComponent<Detector>().CheckWall())
+        if (d.y > 0 && !Detectors[1].GetComponent<Detector>().CheckWall())
         {
-            coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(0, 0.5f, 0))));
+            ways.Add(2);
         }
         else if (d.x > 0 && !Detectors[2].GetComponent<Detector>().CheckWall())
         {
-            coroutine = StartCoroutine(MoveTo(AllignPos(transform.position +new Vector3(0.5f, 0,0))));
+            ways.Add(3);
         }
         else if (d.y < 0 && !Detectors[3].GetComponent<Detector>().CheckWall())
         {
-            coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(0, -0.5f, 0))));
+            ways.Add(4);
+        }
+
+        int p = Random.Range(0, ways.Count);
+        switch (ways[p])
+        {
+            case 1: 
+                coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(-0.5f, 0, 0))));
+                break;
+            case 2:
+                coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(0, 0.5f, 0))));
+                break;
+            case 3:
+                coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(0.5f, 0, 0))));
+                break;
+            case 4:
+                coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(0, -0.5f, 0))));
+                break;
+            default:
+                break;
         }
     }
 
