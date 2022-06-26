@@ -26,6 +26,7 @@ public class LevelInfo : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        SavingManager.Instance.SaveGame(LevelID);
 
         MirrorLeft = MirrorNum;
         numObj = GameObject.Find("TextMirrorNum").transform;
