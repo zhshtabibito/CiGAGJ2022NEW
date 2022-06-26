@@ -6,6 +6,7 @@ public class Player : CharBase
 {
     public static Player Instance;
     private bool prepared = false;
+    private Vector3 BirthPos;
 
     // Start is called before the first frame update
      void Start()
@@ -13,6 +14,7 @@ public class Player : CharBase
         Instance = this;
         scale = Mathf.Abs(transform.localScale.x);
         animator = GetComponent<Animator>();
+        BirthPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
@@ -23,6 +25,8 @@ public class Player : CharBase
             GameObject.Find("LevelRoot").GetComponent<LevelInfo>().OnPrepared();
             PanelManager.Instance.Pop();
             // place menu button
+
+            transform.position = BirthPos;
         }
 
 
