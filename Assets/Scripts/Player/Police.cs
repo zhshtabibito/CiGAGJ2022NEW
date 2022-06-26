@@ -65,7 +65,12 @@ public class Police : CharBase
     // Update is called once per frame
     void Update()
     {
-        if (state == PATROL || state == BACK)
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Debug.Log(state);
+        }
+        Debug.Log(state);
+        if (state == PATROL || state == DIZZY ||state == BACK)
         {
             if (RayFan()) // find player
             {
@@ -74,6 +79,18 @@ public class Police : CharBase
                 startPos = transform.position;
                 state = ALERT;
                 StartCoroutine("WaitAndChase");
+            }
+            else if (state == BACK && !isMoving)
+            {
+                if (ChasePointList.Count == 0)
+                {
+                    state = PATROL;
+                    MoveToPatrolPoint(PatrolNext);
+                }
+                else
+                {
+                    StartCoroutine(MoveTo(ChasePointList[ChasePointList.Count - 1]));
+                }
             }
         }
         else if (state == CHASE && !isMoving)
@@ -87,18 +104,7 @@ public class Police : CharBase
                 StartCoroutine("DizzyAndBack");
             }
         }
-        else if(state == BACK && !isMoving)
-        {
-            if(ChasePointList.Count == 0)
-            {
-                state = PATROL;
-                MoveToPatrolPoint(PatrolNext);
-            }
-            else
-            {
-                StartCoroutine(MoveTo(ChasePointList[ChasePointList.Count - 1]));
-            }
-        }
+
 
         DetectorPrefab.localScale = dir;
     }
@@ -122,23 +128,23 @@ public class Police : CharBase
         {
             coroutine = StartCoroutine(MoveTo(AllignPos(transform.position + new Vector3(0, -0.5f, 0))));
         }
-
-
-
-
     }
 
     private IEnumerator DizzyAndBack()
     {
+        state = DIZZY;
         QuestionMark.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-
-        yield return new WaitForSeconds(0.5f);
-
-        yield return new WaitForSeconds(0.5f);
-
-        yield return new WaitForSeconds(0.5f);
-
+        int temp = WASD;
+        yield return new WaitForSeconds(1f);
+        SetDir((WASD + 1) == 5 ? 1 : (WASD + 1));
+        yield return new WaitForSeconds(1f);
+        SetDir(temp);
+        yield return new WaitForSeconds(1f);
+        SetDir((WASD - 1) == 0 ? 4 : (WASD - 1));
+        yield return new WaitForSeconds(1f);
+        SetDir(temp);
+        QuestionMark.SetActive(false);
+        state = BACK;
     }
 
         private IEnumerator WaitAndChase()
