@@ -13,7 +13,11 @@ public class EXIT : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Time.timeScale = 0;
+            PanelManager.Instance.Push(new NextLevelPanel());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
