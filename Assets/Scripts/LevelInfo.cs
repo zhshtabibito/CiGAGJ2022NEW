@@ -13,6 +13,12 @@ public class LevelInfo : MonoBehaviour
     private Transform player;
     private List<GameObject> MirrorList;
 
+    public List<GameObject> PoliceList;
+    public void OnPrepared()
+    {
+        foreach (GameObject p in PoliceList)
+            p.GetComponent<Police>().OnPrepared();
+    }
 
 
 

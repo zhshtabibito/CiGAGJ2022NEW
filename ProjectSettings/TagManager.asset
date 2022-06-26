@@ -10,6 +10,7 @@ TagManager:
   - Mirror4
   - Wall
   - Shadow
+  - EXIT
   layers:
   - Default
   - TransparentFX
