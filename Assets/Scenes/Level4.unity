@@ -9786,7 +9786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1060736579825225884, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
       propertyPath: spdChase
-      value: 2.25
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1060736579825225884, guid: 06621371faa880b41a9fec45b13cac71, type: 3}
       propertyPath: PatrolList.Array.size
