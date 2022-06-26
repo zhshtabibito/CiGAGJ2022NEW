@@ -17,7 +17,7 @@ public class Police : CharBase
     private Coroutine coroutine;
 
     // State
-    public int state = 0;
+    private int state = 0;
 
     private int STAND = 0;
     private int PATROL = 1;
@@ -47,6 +47,7 @@ public class Police : CharBase
     public void OnPrepared()
     {
         state = 1;
+        MoveToPatrolPoint(PatrolNext);
     }
 
     // Start is called before the first frame update
@@ -62,8 +63,6 @@ public class Police : CharBase
 
         TargetList = new List<Transform>();
         ChasePointList = new List<Vector3>();
-
-        MoveToPatrolPoint(PatrolNext);
     }
 
     // Update is called once per frame
