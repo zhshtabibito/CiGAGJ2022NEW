@@ -37,7 +37,7 @@ public class SavingManager : MonoBehaviour
     private int LoadGame()
     {
         // should be 0
-        return PlayerPrefs.GetInt("Chapter", 3);
+        return PlayerPrefs.GetInt("Chapter", 0);
     }
 
 }

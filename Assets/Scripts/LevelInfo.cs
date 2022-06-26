@@ -32,7 +32,7 @@ public class LevelInfo : MonoBehaviour
         numObj = GameObject.Find("TextMirrorNum").transform;
         SetNum();
 
-        player = Player.Instance.transform;
+        player = GameObject.Find("Player").transform;
 
         MirrorList = new List<GameObject>();
     }
@@ -42,6 +42,8 @@ public class LevelInfo : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
+
             if (MirrorLeft < MirrorNum)
             {
                 foreach (GameObject m in MirrorList)
@@ -60,6 +62,7 @@ public class LevelInfo : MonoBehaviour
             if (MirrorLeft > 0)
             {
                 int mid = player.GetComponent<Player>().CheckWall();
+                Debug.Log(mid);
                 if(mid>0)
                     SetMirror(mid);
             }
