@@ -42,4 +42,10 @@ public class StartPanel : BasePanel
         Chapters = ActivePanel.Find("Chapters");
     }
 
+    public override void OnExit(bool isDestroy = false)
+    {
+        base.OnExit(isDestroy);
+        Chapters.gameObject.SetActive(false);
+    }
+
 }
