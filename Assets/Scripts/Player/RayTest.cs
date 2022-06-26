@@ -6,11 +6,12 @@ public class RayTest : MonoBehaviour
 {
     public GameObject img;
     public float timer = 0;
-    public float disTime = 5;
+    public float disTime;
 
     void Start()
     {
         img = Instantiate(img,null);
+        disTime = 5;
     }
     void Update()
     {

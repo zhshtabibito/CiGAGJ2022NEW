@@ -5,38 +5,50 @@ using UnityEngine;
 public class Player : CharBase
 {
     public static Player Instance;
-
+    public bool prepared = false;
+    private Vector3 BirthPos;
 
     // Start is called before the first frame update
      void Start()
     {
         Instance = this;
-        scale = Mathf.Abs(transform.localScale.x);   
+        scale = Mathf.Abs(transform.localScale.x);
+        animator = GetComponent<Animator>();
+        BirthPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Return) && !prepared)
+        {
+            GameObject.Find("LevelRoot").GetComponent<LevelInfo>().OnPrepared();
+            PanelManager.Instance.Pop();
+            // place menu button
+
+            transform.position = BirthPos;
+        }
+
 
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector2.up * Time.deltaTime * spd);
-            dir = new Vector3(1, 1, 1);
+            SetDir(1);
         }
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector2.left * Time.deltaTime * spd);
-            dir = new Vector3(-1, 1, 1);
+            SetDir(2);
         }
         if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector2.down * Time.deltaTime * spd);
-            dir = new Vector3(1, -1, 1);
+            SetDir(3);
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector2.right * Time.deltaTime * spd);
-            dir = new Vector3(1, 1, 1);
+            SetDir(4);
         }
         transform.localScale = dir * scale;
         DetectorPrefab.localScale = dir;
@@ -57,14 +69,21 @@ public class Player : CharBase
 
         Debug.Log($"{d1},{d2},{d3},{d4}");
 
-        if (d1 && d2 && !d3 && !d4) // О©╫О©╫О©╫О©╫
+        if (d1 && d2 && !d3 && !d4) // вСио
             return 4;
-        if (d2 && d3 && !d1 && !d4) // О©╫О©╫О©╫О©╫
+        if (d2 && d3 && !d1 && !d4) // срио
             return 1;
-        if (d3 && d4 && !d1 && !d2) // О©╫О©╫О©╫О©╫
+        if (d3 && d4 && !d1 && !d2) // сроб
             return 3;
-        if (d1 && d4 && !d2 && !d3) // О©╫О©╫О©╫О©╫
+        if (d1 && d4 && !d2 && !d3) // вСоб
             return 2;
         return 0;
     }
+
+
+
+
+
+
+
 }
