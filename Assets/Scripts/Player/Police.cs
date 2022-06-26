@@ -303,7 +303,10 @@ public class Police : CharBase
 
 
             // ai behave
-
+            StopCoroutine(coroutine);
+            isMoving = false;
+            startPos = transform.position;
+            StartCoroutine("DizzyAndBack");
         }
     }
 
