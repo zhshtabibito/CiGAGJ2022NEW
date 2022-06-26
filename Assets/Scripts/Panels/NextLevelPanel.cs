@@ -15,7 +15,6 @@ public class NextLevelPanel : BasePanel
 
     protected override void InitEvent()
     {
-        Debug.Log(ActivePanel.GetOrAddComponentInChildren<Button>("Button"));
         ActivePanel.GetOrAddComponentInChildren<Button>("Button").onClick.AddListener(() =>
         {
             OnNext();
