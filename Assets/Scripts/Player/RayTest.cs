@@ -5,7 +5,7 @@ using UnityEngine;
 public class RayTest : MonoBehaviour
 {
     public GameObject img;
-    private bool isUse = false;
+    private bool isUse = true;
     void Start()
     {
         img = Instantiate(img,null);
@@ -16,10 +16,12 @@ public class RayTest : MonoBehaviour
         Vector2 vertical = gameObject.transform.GetChild(0).gameObject.transform.position-transform.position;
         Vector2 oldVec = GameObject.Find("Player").transform.position-transform.position;
 
-        RaycastHit2D hit1 = Physics2D.Raycast(transform.position,GameObject.Find("Player").transform.position-transform.position,1000,LayerMask.GetMask("coll"));
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position,img.transform.position-transform.position,1000,LayerMask.GetMask("coll"));
+        float distance = Vector2.Distance(GameObject.Find("Player").transform.position,gameObject.transform.position);
 
-        if(!isUse)
+        RaycastHit2D hit1 = Physics2D.Raycast(transform.position,GameObject.Find("Player").transform.position-transform.position,distance,LayerMask.GetMask("coll"));
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position,img.transform.position-transform.position,distance,LayerMask.GetMask("coll"));
+
+        if(isUse)
         {
             img.SetActive(true);
         }
@@ -33,18 +35,7 @@ public class RayTest : MonoBehaviour
         Vector2 newVec = new Vector2((float)newX,(float)newY);
 
         img.transform.position = newVec;
-
-        /*if(gameObject.tag == "Mirror1"||gameObject.tag == "Mirror2");
-        {
-            img.transform.position = newVec;
-        }
-
-        if(gameObject.tag == "Mirror3"||gameObject.tag == "Mirror4");
-        {
-            img.transform.position = -newVec;
-        }*/
         
-
         if(hit1.collider!=null||hit2.collider!=null)
         {
             img.SetActive(false);

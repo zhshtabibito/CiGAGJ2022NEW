@@ -8,6 +8,9 @@ public class CharBase : MonoBehaviour
     protected float scale = 1;
     protected Vector3 dir;
 
+    public Transform DetectorPrefab;
+    public List<GameObject> Detectors;
+
     // Start is called before the first frame update
     void Start()
     {

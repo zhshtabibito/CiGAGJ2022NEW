@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1263a95de121484c8fc819d2c357421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spd: 1
+  spd: 5
   DetectorPrefab: {fileID: 7944629833648298362}
   Detectors:
   - {fileID: 1413576398688276792}
